@@ -1,6 +1,14 @@
 import React from "react";
 
-function BasketItems({ basketItems, totalPrice, finalPrice, checkout }) {
+function BasketItems({
+  basketItems,
+  totalPrice,
+  finalPrice,
+  checkout,
+  deleteBasketItem,
+  decreaseItemQty,
+  increaseItemQty,
+}) {
   return (
     <>
       {basketItems.length > 0 && (
@@ -15,6 +23,9 @@ function BasketItems({ basketItems, totalPrice, finalPrice, checkout }) {
                   <span>&#40;x{item.itemQty}&#41;</span>
                 </div>
               </div>
+              <button onClick={() => increaseItemQty(item)}>+</button>
+              <button onClick={() => decreaseItemQty(item)}>-</button>
+              <button onClick={() => deleteBasketItem(item.id)}>x</button>
             </article>
           ))}
           <article>

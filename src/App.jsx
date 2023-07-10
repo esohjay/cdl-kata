@@ -11,6 +11,9 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const handleAddToBasket = (item) => {
+    //reset final price before updating basket
+    setFinalPrice(0);
+    //update basket
     setBasketItems((prevState) => {
       //check if the item already exists in the basket
       const itemExist = prevState.find(
@@ -55,6 +58,36 @@ function App() {
     setFinalPrice(finalPrice);
   };
 
+  const deleteBasketItem = (id) => {
+    //reset final price before updating basket
+    setFinalPrice(0);
+    setBasketItems((currentItems) =>
+      currentItems.filter((item) => item.id !== id)
+    );
+  };
+  const increaseQty = (item) => {
+    //reset final price before updating basket
+    setFinalPrice(0);
+    setBasketItems((currentItems) =>
+      currentItems.filter((basketItem) =>
+        basketItem.id === item.id
+          ? { ...item, itemQty: item.itemQty++ }
+          : basketItem
+      )
+    );
+  };
+  const decreaseQty = (item) => {
+    //reset final price before updating basket
+    setFinalPrice(0);
+    setBasketItems((currentItems) =>
+      currentItems.filter((basketItem) =>
+        basketItem.id === item.id && item.itemQty > 1
+          ? { ...item, itemQty: item.itemQty-- }
+          : item
+      )
+    );
+  };
+
   // calculate totalPrice when item is added to basket
   useEffect(() => {
     if (basketItems.length) {
@@ -70,9 +103,12 @@ function App() {
       <ItemList items={items} handleAddToBasket={handleAddToBasket} />
       <BasketItems
         basketItems={basketItems}
-        checkout={checkout}
         totalPrice={totalPrice}
         finalPrice={finalPrice}
+        checkout={checkout}
+        deleteBasketItem={deleteBasketItem}
+        increaseItemQty={increaseQty}
+        decreaseItemQty={decreaseQty}
       />
     </main>
   );
