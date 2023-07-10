@@ -1,5 +1,7 @@
 # The checkout app
 
+This challenge took roughly 2hours to complete.
+
 ## Installation
 
 To run this code locally, clone this repository.
