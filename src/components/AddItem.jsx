@@ -27,44 +27,52 @@ function AddItem({ addToItemsList }) {
     event.target.reset();
   };
   return (
-    <form onSubmit={handleAddItem}>
-      <div>
-        <label htmlFor="">Item name</label>
-        <input
-          type="text"
-          ref={itemNameRef}
-          placeholder="Enter item name"
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="">Item price &#40;&#163;&#41;</label>
-        <input
-          type="number"
-          ref={itemPriceRef}
-          placeholder="Enter item price"
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="">Multiprice quantity &#40;Optional&#41;</label>
-        <input
-          type="number"
-          ref={multiPriceQtyRef}
-          placeholder="Enter multi price qty"
-        />
-      </div>
-      <div>
-        <label htmlFor="">
-          Multiprice amount &#40;&#163;&#41; &#40;Optional&#41;
-        </label>
-        <input
-          type="number"
-          ref={multiPriceRef}
-          placeholder="Enter multi price"
-        />
-      </div>
-      <button type="submit">Add Item</button>
+    <form className="addItem-container" onSubmit={handleAddItem}>
+      <article className="input-container">
+        <div className="field-container">
+          <label htmlFor="">Item name</label>
+          <input
+            type="text"
+            ref={itemNameRef}
+            className="input-field"
+            placeholder="Enter item name"
+            required
+          />
+        </div>
+        <div className="field-container">
+          <label htmlFor="">Item price &#40;&#163;&#41;</label>
+          <input
+            type="number"
+            ref={itemPriceRef}
+            className="input-field"
+            placeholder="Enter item price"
+            required
+          />
+        </div>
+        <div className="field-container">
+          <label htmlFor="">Multiprice quantity &#40;Optional&#41;</label>
+          <input
+            type="number"
+            ref={multiPriceQtyRef}
+            className="input-field"
+            placeholder="Enter multi price qty"
+          />
+        </div>
+        <div className="field-container">
+          <label htmlFor="">
+            Multiprice amount &#40;&#163;&#41; &#40;Optional&#41;
+          </label>
+          <input
+            type="number"
+            ref={multiPriceRef}
+            className="input-field"
+            placeholder="Enter multi price"
+          />
+        </div>
+      </article>
+      <button type="submit" className="btn">
+        Add Item
+      </button>
     </form>
   );
 }

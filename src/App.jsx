@@ -99,17 +99,21 @@ function App() {
   return (
     <main>
       <h2>Kata</h2>
-      <AddItem addToItemsList={setItems} />
-      <ItemList items={items} handleAddToBasket={handleAddToBasket} />
-      <BasketItems
-        basketItems={basketItems}
-        totalPrice={totalPrice}
-        finalPrice={finalPrice}
-        checkout={checkout}
-        deleteBasketItem={deleteBasketItem}
-        increaseItemQty={increaseQty}
-        decreaseItemQty={decreaseQty}
-      />
+      <article className="add-item-section">
+        <AddItem addToItemsList={setItems} />
+      </article>
+      <article className="item-section">
+        <ItemList items={items} handleAddToBasket={handleAddToBasket} />
+        <BasketItems
+          basketItems={basketItems}
+          totalPrice={totalPrice}
+          finalPrice={finalPrice}
+          checkout={checkout}
+          deleteBasketItem={deleteBasketItem}
+          increaseItemQty={increaseQty}
+          decreaseItemQty={decreaseQty}
+        />
+      </article>
     </main>
   );
 }

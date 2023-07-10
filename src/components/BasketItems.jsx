@@ -12,32 +12,50 @@ function BasketItems({
   return (
     <>
       {basketItems.length > 0 && (
-        <section>
+        <section className="basket-container">
           <h3>Basket</h3>
           {basketItems.map((item) => (
-            <article key={item.id}>
-              <div>
+            <article className="item-wrap" key={item.id}>
+              <div className="item">
                 <p>{item.name}</p>
                 <div>
                   <p>{item.price}</p>
                   <span>&#40;x{item.itemQty}&#41;</span>
                 </div>
               </div>
-              <button onClick={() => increaseItemQty(item)}>+</button>
-              <button onClick={() => decreaseItemQty(item)}>-</button>
-              <button onClick={() => deleteBasketItem(item.id)}>x</button>
+
+              <button
+                className="btn btn-small"
+                onClick={() => increaseItemQty(item)}
+              >
+                +
+              </button>
+              <button
+                className="btn btn-small"
+                onClick={() => decreaseItemQty(item)}
+              >
+                -
+              </button>
+              <button
+                className="btn btn-small"
+                onClick={() => deleteBasketItem(item.id)}
+              >
+                x
+              </button>
             </article>
           ))}
-          <article>
-            <div>
+          <article className="total-section">
+            <div className="total">
               <p>Total:</p>
               <p>&#163;{totalPrice}</p>
             </div>
-            <div>
-              <p>Total:</p>
+            <div className="total">
+              <p>Amount to pay:</p>
               <p>&#163;{finalPrice}</p>
             </div>
-            <button onClick={checkout}>Checkout</button>
+            <button onClick={checkout} className="btn">
+              Checkout
+            </button>
           </article>
         </section>
       )}
