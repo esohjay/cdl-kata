@@ -1,6 +1,6 @@
 import React from "react";
 
-function ItemList({ items }) {
+function ItemList({ items, handleAddToBasket }) {
   return (
     <section>
       <h3>Items</h3>
@@ -17,6 +17,7 @@ function ItemList({ items }) {
               )}
             </div>
           </div>
+          <button onClick={() => handleAddToBasket(item)}>Buy</button>
         </article>
       ))}
     </section>
