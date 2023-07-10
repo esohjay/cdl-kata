@@ -1,6 +1,6 @@
 import React from "react";
 
-function ItemList({ items, handleAddToBasket }) {
+function ItemList({ items, handleAddToBasket, clearItemList }) {
   return (
     <>
       {items.length > 0 && (
@@ -12,7 +12,7 @@ function ItemList({ items, handleAddToBasket }) {
                 <p>{item.name}</p>
                 <div>
                   <p>{item.price}</p>
-                  {item.multiPrice && (
+                  {item.multiPrice > 0 && (
                     <span>
                       &#40;{item.multiPriceQty} for &#163;{item.multiPrice}&#41;
                     </span>
@@ -27,6 +27,9 @@ function ItemList({ items, handleAddToBasket }) {
               </button>
             </article>
           ))}
+          <button className="btn" onClick={clearItemList}>
+            Remove all
+          </button>
         </section>
       )}
     </>

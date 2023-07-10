@@ -50,6 +50,7 @@ function AddItem({ addToItemsList }) {
             ref={itemPriceRef}
             className="input-field"
             placeholder="Enter item price"
+            defaultValue={0}
             required
           />
         </div>
@@ -60,6 +61,7 @@ function AddItem({ addToItemsList }) {
             ref={multiPriceQtyRef}
             className="input-field"
             placeholder="Enter multi price qty"
+            defaultValue={0}
           />
         </div>
         <div className="field-container">
@@ -71,6 +73,7 @@ function AddItem({ addToItemsList }) {
             ref={multiPriceRef}
             className="input-field"
             placeholder="Enter multi price"
+            defaultValue={0}
           />
         </div>
       </article>

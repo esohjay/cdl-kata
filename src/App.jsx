@@ -88,6 +88,11 @@ function App() {
     );
   };
 
+  const clearItemList = () => {
+    localStorage.removeItem("items");
+    setItems([]);
+  };
+
   // calculate totalPrice when item is added to basket
   useEffect(() => {
     if (basketItems.length) {
@@ -109,7 +114,11 @@ function App() {
         <AddItem addToItemsList={setItems} />
       </article>
       <article className="item-section">
-        <ItemList items={items} handleAddToBasket={handleAddToBasket} />
+        <ItemList
+          items={items}
+          handleAddToBasket={handleAddToBasket}
+          clearItemList={clearItemList}
+        />
         <BasketItems
           basketItems={basketItems}
           totalPrice={totalPrice}
