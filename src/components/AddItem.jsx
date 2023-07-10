@@ -32,6 +32,7 @@ function AddItem({ addToItemsList }) {
   };
   return (
     <form className="addItem-container" onSubmit={handleAddItem}>
+      <h3>Create an item</h3>
       <article className="input-container">
         <div className="field-container">
           <label htmlFor="">Item name</label>
