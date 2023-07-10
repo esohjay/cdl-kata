@@ -96,6 +96,12 @@ function App() {
       );
     }
   }, [basketItems]);
+  useEffect(() => {
+    const storedItems = localStorage.getItem("items");
+    if (storedItems) {
+      setItems(JSON.parse(storedItems));
+    }
+  }, []);
   return (
     <main>
       <h2>Kata</h2>

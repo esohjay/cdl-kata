@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 
 function AddItem({ addToItemsList }) {
   const itemNameRef = useRef(null);
@@ -21,7 +21,11 @@ function AddItem({ addToItemsList }) {
       multiPriceQty: multiPriceQty,
     };
 
-    addToItemsList((prevState) => [...prevState, item]);
+    addToItemsList((prevState) => {
+      const newItems = [...prevState, item];
+      localStorage.setItem("items", JSON.stringify(newItems));
+      return newItems;
+    });
 
     //clear input fields
     event.target.reset();
