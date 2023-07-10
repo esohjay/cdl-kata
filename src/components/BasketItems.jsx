@@ -1,6 +1,6 @@
 import React from "react";
 
-function BasketItems({ basketItems }) {
+function BasketItems({ basketItems, totalPrice, finalPrice, checkout }) {
   return (
     <>
       {basketItems.length > 0 && (
@@ -17,6 +17,17 @@ function BasketItems({ basketItems }) {
               </div>
             </article>
           ))}
+          <article>
+            <div>
+              <p>Total:</p>
+              <p>&#163;{totalPrice}</p>
+            </div>
+            <div>
+              <p>Total:</p>
+              <p>&#163;{finalPrice}</p>
+            </div>
+            <button onClick={checkout}>Checkout</button>
+          </article>
         </section>
       )}
     </>
